@@ -3,7 +3,7 @@ const usercontroller = require("./user.controller");
 const { validate } = require("./user.validator");
 router.get("/", async (req, res, next) => {
   try {
-    result = await usercontroller.get();
+    result = await usercontroller.get(req.body);
     res.json({ msg: result });
   } catch (e) {
     next(e);

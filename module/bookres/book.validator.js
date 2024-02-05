@@ -1,9 +1,9 @@
 const Joi = require("joi");
-
 const schema = Joi.object({
   title: Joi.string().required(),
   author: Joi.string(),
   content: Joi.string(),
+  page: Joi.number(),
 });
 
 const validate = (req, res, next) => {
