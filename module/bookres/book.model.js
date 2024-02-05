@@ -1,9 +1,12 @@
 const { Schema, model } = require("mongoose");
+const { ObjectId } = Schema.Types;
+
 const bookSchema = new Schema({
   title: String,
-  aurthor: { type: String, required: true },
+  author: { type: ObjectId, required: true, ref: "user" },
   content: { type: String, required: true },
   createdat: { type: Number, default: Date.now() },
   updateat: { type: Number, default: Date.now() },
 });
-module.exports = new model("book", bookSchema);
+
+module.exports = model("Book", bookSchema);
